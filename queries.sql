@@ -129,8 +129,51 @@ WHERE actor_id IN(SELECT actor_id
 				WHERE title = 'Alone Trip');
                 
 -- 7c
+SELECT first_name, last_name, email
+FROM customer
+WHERE address_id IN(SELECT address.address_id
+				  FROM address
+                  INNER JOIN city ON address.city_id = city.city_id
+                  INNER JOIN country ON city.country_id = country.country_id
+				  WHERE country = 'Canada');
 
-	
+-- 7d
+SELECT title
+FROM film
+WHERE film_id IN(SELECT film_id
+				  FROM film_category
+                  INNER JOIN category ON film_category.category_id = category.category_id
+				  WHERE name = "Family");
+                  
+-- 7e
+-- Most frequently rented movies in decending order
+SELECT title, COUNT(ren.film_id) AS CNT
+FROM film
+INNER JOIN(SELECT film_id  -- only select what you need for the outer table
+		   FROM inventory
+		   INNER JOIN rental on inventory.inventory_id = rental.inventory_id) ren
+ON ren.film_id = film.film_id
+GROUP BY title
+ORDER BY CNT DESC;
+
+-- 7f
+
+
+-- 7g
+--  display the store_id, city, and country for each store
+SELECT store_id, location.city, location.country
+FROM store
+-- use an inner join so we can store the city, country, and address_id
+-- from other tables to 
+INNER JOIN(SELECT city, country, address_id
+		   FROM address
+		   INNER JOIN city ON address.city_id = city.city_id
+           INNER JOIN country ON city.country_id = country.country_id) location            
+ON location.address_id = store.address_id
+GROUP BY store_id;
+
+-- 7h
+
 
 
 
