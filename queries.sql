@@ -3,7 +3,9 @@ This script has 8 parts, each of which composes of about 1
 to 8 querries each.
 
 The goal of this script is to showcase some of the queries that can
-be made in MySQL, and the power that it has with connecting data.
+be made in MySQL.  The database sakila can be downloaded directly from
+MYSQL's website:
+https://dev.mysql.com/doc/sakila/en/sakila-installation.html
 
 Table of Contents:
 Part 1 - Basic Querries
