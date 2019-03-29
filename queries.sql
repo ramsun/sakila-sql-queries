@@ -91,11 +91,12 @@ address_id INT AUTO_INCREMENT,
 address VARCHAR(50),
 address2 VARCHAR(50),
 district VARCHAR(20),
-city_id INT AUTO_INCREMENT,
+city_id INT,
 postal_code VARCHAR(10),
 phone VARCHAR(20),
 location GEOMETRY,
-last_update TIMESTAMP
+last_update TIMESTAMP,
+PRIMARY KEY(address_id)
 )
 
 /*  Part 6 - Joins    */
