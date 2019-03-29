@@ -88,14 +88,14 @@ WHERE (first_name = 'HARPO' AND last_name = 'WILLIAMS');
 -- Recreate the table "address" 
 CREATE TABLE IF NOT EXISTS address (
 address_id INT AUTO_INCREMENT,
-address VARCHAR(50),
+address VARCHAR(50) NOT NULL,
 address2 VARCHAR(50),
-district VARCHAR(20),
+district VARCHAR(20) NOT NULL,
 city_id INT,
-postal_code VARCHAR(10),
-phone VARCHAR(20),
-location GEOMETRY,
-last_update TIMESTAMP,
+postal_code VARCHAR(10) NOT NULL,
+phone VARCHAR(20) NOT NULL,
+location GEOMETRY NOT NULL,
+last_update TIMESTAMP NOT NULL,
 PRIMARY KEY(address_id)
 )
 
